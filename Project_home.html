@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Home</title>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <style>
-        .flag-container{
+        .flag-container {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -15,6 +16,7 @@
             margin-top: 0%;
             background-color: #f0f0f0;
         }
+
         .swiper-container {
             width: 40%;
             height: 400px;
@@ -22,12 +24,14 @@
             border-radius: 8px;
             overflow: hidden;
         }
+
         .swiper-slide img {
             display: block;
             width: 100%;
             height: 100%;
             object-fit: contain;
         }
+
         .country-name-box {
             margin-top: 10px;
             padding: 10px;
@@ -39,29 +43,32 @@
             font-size: 1.2em;
         }
 
-        nav {
-            background-color: #8e68e7;
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
             text-align: center;
-            width: 98%;
-            padding: 0; 
-            margin: 0; 
+            width: 100%;
         }
 
-        nav ul {
+        header nav ul {
             list-style: none;
-            padding: 15px;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
         }
 
-        nav ul li {
-            cursor: pointer;
+        header nav ul li {
+            display: inline;
+            margin: 0 15px;
         }
 
-        nav ul li:hover {
-            color: rgb(200, 200, 218);
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        header nav ul li a:hover,
+        .active {
+            text-decoration: underline;
         }
 
         .button-container {
@@ -72,6 +79,7 @@
             margin: 0;
             margin-top: -50%;
         }
+
         .button-74 {
             background-color: #fbeee0;
             border: 2px solid #422800;
@@ -89,7 +97,7 @@
             user-select: none;
             -webkit-user-select: none;
             touch-action: manipulation;
-            margin: 0 50px; 
+            margin: 0 50px;
         }
 
         .button-74:hover {
@@ -109,140 +117,139 @@
         }
     </style>
 </head>
+
 <body>
-    <nav>
-        <ul>
-            <li onclick="navigateTo('project_home.html')">Home</li>
-            <li onclick="navigateTo('final_project.html')">Functionality</li>
-            <li onclick="navigateTo('https://www.google.com')">About</li>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="Project_home.html">Home</a></li>
+                <li><a href="project_convert.html">Convert</a></li>
+                <li><a href="AboutPage.html" class="active">About</a></li>
+            </ul>
+        </nav>
+    </header>
     <div class="flag-container">
-    <h1>Welcome</h1>
-    <br>
-    <h3>If your next trip right about the corner is to one of these countries, then you're in luck. We have a great tool to help you plan your finance while your there. Click on the Function button below to get started! </h3>
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
+        <h1>Welcome</h1>
+        <br>
+        <h3>If your next trip right about the corner is to one of these countries, then you're in luck. We have a great
+            tool to help you plan your finance while your there. Click on the convert button below to get started!
+        </h3>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </div>
-    <div class="country-name-box" id="countryNameBox"></div>
+        <div class="country-name-box" id="countryNameBox"></div>
 
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script>
-        const countryCodes = [
-            'us', 'ae', 'af', 'al', 'am', 'nl', 'ao', 'ar', 'au', 'aw', 
-            'az', 'ba', 'bb', 'bd', 'bg', 'bh', 'bi', 'bm', 'bn', 'bo',
-            'br', 'bs', 'bt', 'bw', 'by', 'bz', 'ca', 'cd', 'ch', 'cl',
-            'cn', 'co', 'cr', 'cu', 'cv', 'cz', 'dj', 'dk', 'do', 'dz',
-            'eg', 'er', 'et', 'eu', 'fj', 'fk', 'fo', 'gb', 'ge', 'gh', 
-            'gi', 'gm', 'gn', 'gt', 'gy', 'hk', 'hn', 'hr', 'ht', 'hu', 
-            'id', 'il', 'im', 'in', 'iq', 'ir', 'is', 'je', 'jm', 'jo', 
-            'jp', 'ke', 'kg', 'kh', 'ki', 'km', 'kr', 'kw', 'ky', 'kz', 
-            'la', 'lb', 'lk', 'lr', 'ls', 'ly', 'ma', 'md', 'mg', 'mk', 
-            'mm', 'mn', 'mo', 'mr', 'mu', 'mv', 'mw', 'mx', 'my', 'mz', 
-            'na', 'ng', 'ni', 'no', 'np', 'nz', 'om', 'pa', 'pe', 'pg', 
-            'ph', 'pk', 'pl', 'py', 'qa', 'ro', 'rs', 'ru', 'rw', 'sa', 
-            'sb', 'sc', 'sd', 'se', 'sg', 'sh', 'sl', 'so', 'sr', 'ss', 
-            'st', 'sy', 'sz', 'th', 'tj', 'tm', 'tn', 'to', 'tr', 'tt', 
-            'tv', 'tw', 'tz', 'ua', 'ug', 'uy', 'uz', 've', 'vn', 'vu', 
-            'ws', 'xf', 'xc', 'xpf', 'ye', 'za', 'zm', 'zw'
-        ];
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script>
+            const countryCodes = [
+                'us', 'ae', 'af', 'al', 'am', 'nl', 'ao', 'ar', 'au', 'aw',
+                'az', 'ba', 'bb', 'bd', 'bg', 'bh', 'bi', 'bm', 'bn', 'bo',
+                'br', 'bs', 'bt', 'bw', 'by', 'bz', 'ca', 'cd', 'ch', 'cl',
+                'cn', 'co', 'cr', 'cu', 'cv', 'cz', 'dj', 'dk', 'do', 'dz',
+                'eg', 'er', 'et', 'eu', 'fj', 'fk', 'fo', 'gb', 'ge', 'gh',
+                'gi', 'gm', 'gn', 'gt', 'gy', 'hk', 'hn', 'hr', 'ht', 'hu',
+                'id', 'il', 'im', 'in', 'iq', 'ir', 'is', 'je', 'jm', 'jo',
+                'jp', 'ke', 'kg', 'kh', 'ki', 'km', 'kr', 'kw', 'ky', 'kz',
+                'la', 'lb', 'lk', 'lr', 'ls', 'ly', 'ma', 'md', 'mg', 'mk',
+                'mm', 'mn', 'mo', 'mr', 'mu', 'mv', 'mw', 'mx', 'my', 'mz',
+                'na', 'ng', 'ni', 'no', 'np', 'nz', 'om', 'pa', 'pe', 'pg',
+                'ph', 'pk', 'pl', 'py', 'qa', 'ro', 'rs', 'ru', 'rw', 'sa',
+                'sb', 'sc', 'sd', 'se', 'sg', 'sh', 'sl', 'so', 'sr', 'ss',
+                'st', 'sy', 'sz', 'th', 'tj', 'tm', 'tn', 'to', 'tr', 'tt',
+                'tv', 'tw', 'tz', 'ua', 'ug', 'uy', 'uz', 've', 'vn', 'vu',
+                'ws', 'xf', 'xc', 'xpf', 'ye', 'za', 'zm', 'zw'
+            ];
 
-        const countryNames = {
-            'us': 'United States', 'ae': 'United Arab Emirates', 'af': 'Afghanistan', 
-            'al': 'Albania', 'am': 'Armenia', 'nl': 'Netherlands', 'ao': 'Angola', 
-            'ar': 'Argentina', 'au': 'Australia', 'aw': 'Aruba', 'az': 'Azerbaijan', 
-            'ba': 'Bosnia and Herzegovina', 'bb': 'Barbados', 'bd': 'Bangladesh', 
-            'bg': 'Bulgaria', 'bh': 'Bahrain', 'bi': 'Burundi', 'bm': 'Bermuda', 
-            'bn': 'Brunei', 'bo': 'Bolivia', 'br': 'Brazil', 'bs': 'Bahamas', 
-            'bt': 'Bhutan', 'bw': 'Botswana', 'by': 'Belarus', 'bz': 'Belize', 
-            'ca': 'Canada', 'cd': 'Congo', 'ch': 'Switzerland', 'cl': 'Chile', 
-            'cn': 'China', 'co': 'Colombia', 'cr': 'Costa Rica', 'cu': 'Cuba', 
-            'cv': 'Cape Verde', 'cz': 'Czech Republic', 'dj': 'Djibouti', 
-            'dk': 'Denmark', 'do': 'Dominican Republic', 'dz': 'Algeria', 
-            'eg': 'Egypt', 'er': 'Eritrea', 'et': 'Ethiopia', 'eu': 'European Union', 
-            'fj': 'Fiji', 'fk': 'Falkland Islands', 'fo': 'Faroe Islands', 
-            'gb': 'United Kingdom', 'ge': 'Georgia', 'gh': 'Ghana', 'gi': 'Gibraltar', 
-            'gm': 'Gambia', 'gn': 'Guinea', 'gt': 'Guatemala', 'gy': 'Guyana', 
-            'hk': 'Hong Kong', 'hn': 'Honduras', 'hr': 'Croatia', 'ht': 'Haiti', 
-            'hu': 'Hungary', 'id': 'Indonesia', 'il': 'Israel', 'im': 'Isle of Man', 
-            'in': 'India', 'iq': 'Iraq', 'ir': 'Iran', 'is': 'Iceland', 'je': 'Jersey', 
-            'jm': 'Jamaica', 'jo': 'Jordan', 'jp': 'Japan', 'ke': 'Kenya', 
-            'kg': 'Kyrgyzstan', 'kh': 'Cambodia', 'ki': 'Kiribati', 'km': 'Comoros', 
-            'kr': 'South Korea', 'kw': 'Kuwait', 'ky': 'Cayman Islands', 
-            'kz': 'Kazakhstan', 'la': 'Laos', 'lb': 'Lebanon', 'lk': 'Sri Lanka', 
-            'lr': 'Liberia', 'ls': 'Lesotho', 'ly': 'Libya', 'ma': 'Morocco', 
-            'md': 'Moldova', 'mg': 'Madagascar', 'mk': 'North Macedonia', 'mm': 'Myanmar', 
-            'mn': 'Mongolia', 'mo': 'Macau', 'mr': 'Mauritania', 'mu': 'Mauritius', 
-            'mv': 'Maldives', 'mw': 'Malawi', 'mx': 'Mexico', 'my': 'Malaysia', 
-            'mz': 'Mozambique', 'na': 'Namibia', 'ng': 'Nigeria', 'ni': 'Nicaragua', 
-            'no': 'Norway', 'np': 'Nepal', 'nz': 'New Zealand', 'om': 'Oman', 
-            'pa': 'Panama', 'pe': 'Peru', 'pg': 'Papua New Guinea', 'ph': 'Philippines', 
-            'pk': 'Pakistan', 'pl': 'Poland', 'py': 'Paraguay', 'qa': 'Qatar', 
-            'ro': 'Romania', 'rs': 'Serbia', 'ru': 'Russia', 'rw': 'Rwanda', 
-            'sa': 'Saudi Arabia', 'sb': 'Solomon Islands', 'sc': 'Seychelles', 
-            'sd': 'Sudan', 'se': 'Sweden', 'sg': 'Singapore', 'sh': 'Saint Helena', 
-            'sl': 'Sierra Leone', 'so': 'Somalia', 'sr': 'Suriname', 'ss': 'South Sudan', 
-            'st': 'Sao Tome and Principe', 'sy': 'Syria', 'sz': 'Eswatini', 
-            'th': 'Thailand', 'tj': 'Tajikistan', 'tm': 'Turkmenistan', 'tn': 'Tunisia', 
-            'to': 'Tonga', 'tr': 'Turkey', 'tt': 'Trinidad and Tobago', 'tv': 'Tuvalu', 
-            'tw': 'Taiwan', 'tz': 'Tanzania', 'ua': 'Ukraine', 'ug': 'Uganda', 
-            'uy': 'Uruguay', 'uz': 'Uzbekistan', 've': 'Venezuela', 'vn': 'Vietnam', 
-            'vu': 'Vanuatu', 'ws': 'Samoa', 'xf': 'West African CFA franc', 
-            'xc': 'East Caribbean dollar', 'xpf': 'CFP franc', 'ye': 'Yemen', 
-            'za': 'South Africa', 'zm': 'Zambia', 'zw': 'Zimbabwe'
-        };
+            const countryNames = {
+                'us': 'United States', 'ae': 'United Arab Emirates', 'af': 'Afghanistan',
+                'al': 'Albania', 'am': 'Armenia', 'nl': 'Netherlands', 'ao': 'Angola',
+                'ar': 'Argentina', 'au': 'Australia', 'aw': 'Aruba', 'az': 'Azerbaijan',
+                'ba': 'Bosnia and Herzegovina', 'bb': 'Barbados', 'bd': 'Bangladesh',
+                'bg': 'Bulgaria', 'bh': 'Bahrain', 'bi': 'Burundi', 'bm': 'Bermuda',
+                'bn': 'Brunei', 'bo': 'Bolivia', 'br': 'Brazil', 'bs': 'Bahamas',
+                'bt': 'Bhutan', 'bw': 'Botswana', 'by': 'Belarus', 'bz': 'Belize',
+                'ca': 'Canada', 'cd': 'Congo', 'ch': 'Switzerland', 'cl': 'Chile',
+                'cn': 'China', 'co': 'Colombia', 'cr': 'Costa Rica', 'cu': 'Cuba',
+                'cv': 'Cape Verde', 'cz': 'Czech Republic', 'dj': 'Djibouti',
+                'dk': 'Denmark', 'do': 'Dominican Republic', 'dz': 'Algeria',
+                'eg': 'Egypt', 'er': 'Eritrea', 'et': 'Ethiopia', 'eu': 'European Union',
+                'fj': 'Fiji', 'fk': 'Falkland Islands', 'fo': 'Faroe Islands',
+                'gb': 'United Kingdom', 'ge': 'Georgia', 'gh': 'Ghana', 'gi': 'Gibraltar',
+                'gm': 'Gambia', 'gn': 'Guinea', 'gt': 'Guatemala', 'gy': 'Guyana',
+                'hk': 'Hong Kong', 'hn': 'Honduras', 'hr': 'Croatia', 'ht': 'Haiti',
+                'hu': 'Hungary', 'id': 'Indonesia', 'il': 'Israel', 'im': 'Isle of Man',
+                'in': 'India', 'iq': 'Iraq', 'ir': 'Iran', 'is': 'Iceland', 'je': 'Jersey',
+                'jm': 'Jamaica', 'jo': 'Jordan', 'jp': 'Japan', 'ke': 'Kenya',
+                'kg': 'Kyrgyzstan', 'kh': 'Cambodia', 'ki': 'Kiribati', 'km': 'Comoros',
+                'kr': 'South Korea', 'kw': 'Kuwait', 'ky': 'Cayman Islands',
+                'kz': 'Kazakhstan', 'la': 'Laos', 'lb': 'Lebanon', 'lk': 'Sri Lanka',
+                'lr': 'Liberia', 'ls': 'Lesotho', 'ly': 'Libya', 'ma': 'Morocco',
+                'md': 'Moldova', 'mg': 'Madagascar', 'mk': 'North Macedonia', 'mm': 'Myanmar',
+                'mn': 'Mongolia', 'mo': 'Macau', 'mr': 'Mauritania', 'mu': 'Mauritius',
+                'mv': 'Maldives', 'mw': 'Malawi', 'mx': 'Mexico', 'my': 'Malaysia',
+                'mz': 'Mozambique', 'na': 'Namibia', 'ng': 'Nigeria', 'ni': 'Nicaragua',
+                'no': 'Norway', 'np': 'Nepal', 'nz': 'New Zealand', 'om': 'Oman',
+                'pa': 'Panama', 'pe': 'Peru', 'pg': 'Papua New Guinea', 'ph': 'Philippines',
+                'pk': 'Pakistan', 'pl': 'Poland', 'py': 'Paraguay', 'qa': 'Qatar',
+                'ro': 'Romania', 'rs': 'Serbia', 'ru': 'Russia', 'rw': 'Rwanda',
+                'sa': 'Saudi Arabia', 'sb': 'Solomon Islands', 'sc': 'Seychelles',
+                'sd': 'Sudan', 'se': 'Sweden', 'sg': 'Singapore', 'sh': 'Saint Helena',
+                'sl': 'Sierra Leone', 'so': 'Somalia', 'sr': 'Suriname', 'ss': 'South Sudan',
+                'st': 'Sao Tome and Principe', 'sy': 'Syria', 'sz': 'Eswatini',
+                'th': 'Thailand', 'tj': 'Tajikistan', 'tm': 'Turkmenistan', 'tn': 'Tunisia',
+                'to': 'Tonga', 'tr': 'Turkey', 'tt': 'Trinidad and Tobago', 'tv': 'Tuvalu',
+                'tw': 'Taiwan', 'tz': 'Tanzania', 'ua': 'Ukraine', 'ug': 'Uganda',
+                'uy': 'Uruguay', 'uz': 'Uzbekistan', 've': 'Venezuela', 'vn': 'Vietnam',
+                'vu': 'Vanuatu', 'ws': 'Samoa', 'xf': 'West African CFA franc',
+                'xc': 'East Caribbean dollar', 'xpf': 'CFP franc', 'ye': 'Yemen',
+                'za': 'South Africa', 'zm': 'Zambia', 'zw': 'Zimbabwe'
+            };
 
-        function loadFlags() {
-            const swiperWrapper = document.querySelector('.swiper-wrapper');
-            const countryNameBox = document.getElementById('countryNameBox');
-            swiperWrapper.innerHTML = ''; 
+            function loadFlags() {
+                const swiperWrapper = document.querySelector('.swiper-wrapper');
+                const countryNameBox = document.getElementById('countryNameBox');
+                swiperWrapper.innerHTML = '';
 
-            countryCodes.forEach(code => {
-                const slide = document.createElement('div');
-                slide.classList.add('swiper-slide');
-                const img = document.createElement('img');
-                img.src = `https://flagcdn.com/w320/${code}.png`;
-                img.alt = code.toUpperCase();
-                slide.appendChild(img);
-                swiperWrapper.appendChild(slide);
-            });
+                countryCodes.forEach(code => {
+                    const slide = document.createElement('div');
+                    slide.classList.add('swiper-slide');
+                    const img = document.createElement('img');
+                    img.src = `https://flagcdn.com/w320/${code}.png`;
+                    img.alt = code.toUpperCase();
+                    slide.appendChild(img);
+                    swiperWrapper.appendChild(slide);
+                });
 
-            const swiper = new Swiper('.swiper-container', {
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                autoplay: {
-                    delay: 5000, 
-                    disableOnInteraction: false,
-                },
-                loop: true,
-            });
+                const swiper = new Swiper('.swiper-container', {
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    },
+                    loop: true,
+                });
 
-            swiper.on('slideChange', function () {
-                const countryCode = countryCodes[swiper.realIndex];
-                countryNameBox.textContent = countryNames[countryCode] || 'Unknown Country';
-            });
+                swiper.on('slideChange', function () {
+                    const countryCode = countryCodes[swiper.realIndex];
+                    countryNameBox.textContent = countryNames[countryCode] || 'Unknown Country';
+                });
 
-            countryNameBox.textContent = countryNames[countryCodes[0]];
-        }
+                countryNameBox.textContent = countryNames[countryCodes[0]];
+            }
 
-        window.onload = loadFlags;
-    </script>
+            window.onload = loadFlags;
+        </script>
     </div>
     <div class="button-container">
-        <button class="button-74" role="button" onclick="location.href='final_project.html'">Function</button>
-        <button class="button-74" role="button" onclick="location.href='final_project.html'"> About </button>
+        <button class="button-74" role="button" onclick="location.href='project_convert.html'">Convert</button>
+        <button class="button-74" role="button" onclick="location.href='AboutPage.html'"> About </button>
     </div>
-
-    <script>
-        function navigateTo(page) {
-            console.log('Navigating to page:', page);
-            window.location.href = page;
-        }
-    </script>
 </body>
+
 </html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab 5 INST 377</title>
+    <title>Conversion</title>
     <style>
         body {
             display: flex;
@@ -16,34 +16,9 @@
             background-color: #f0f0f0;
         }
 
-        h1 {
-            text-align: center;
-            margin-top: 20px;
+        .active {
+            text-decoration: underline;
         }
-
-        nav {
-            background-color: #8e68e7;
-            text-align: center;
-            width: 98%;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 15px;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        nav ul li {
-            cursor: pointer;
-        }
-
-        nav ul li:hover {
-            color: rgb(200, 200, 218);
-        }
-
 
         .container {
             display: center;
@@ -57,6 +32,35 @@
             display: flex;
             justify-content: center;
         }
+        
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        header nav ul {
+            list-style: none;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        header nav ul li a:hover,
+        .active {
+            text-decoration: underline;
+        }
+
 
         form {
             display: flex;
@@ -90,18 +94,19 @@
             border-top: 1px solid #ccc;
         }
     </style>
-    <script defer src="final_project.js"></script>
+    <script defer src="project_convertjs.js"></script>
 </head>
 
 <body>
-    <h1>INST 377 Final Project: Currency Conversion</h1>
-    <nav>
-        <ul>
-            <li onclick="navigateTo('project_home.html')">Home</li>
-            <li onclick="navigateTo('project_convert.html')">Convert</li>
-            <li onclick="navigateTo('https://www.google.com')">About</li>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="Project_home.html">Home</a></li>
+                <li><a href="project_convert.html">Convert</a></li>
+                <li><a href="AboutPage.html" class="active">About</a></li>
+            </ul>
+        </nav>
+    </header>
     <div class="container">
         <div class="main-content">
             <form onsubmit="convert(); return false;">
