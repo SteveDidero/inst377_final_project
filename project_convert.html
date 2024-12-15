@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 5 INST 377</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        nav {
+            background-color: #8e68e7;
+            text-align: center;
+            width: 98%;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 15px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav ul li {
+            cursor: pointer;
+        }
+
+        nav ul li:hover {
+            color: rgb(200, 200, 218);
+        }
+
+
+        .container {
+            display: center;
+            align-items: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .main-content {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+
+            width: 60%;
+        }
+
+        input,
+        select {
+            margin: 10px 0;
+            padding: 10px;
+            width: 90%;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            width: 90%;
+            text-align: center;
+            padding: 10px;
+            border-top: 1px solid #ccc;
+        }
+    </style>
+    <script defer src="final_project.js"></script>
+</head>
+
+<body>
+    <h1>INST 377 Final Project: Currency Conversion</h1>
+    <nav>
+        <ul>
+            <li onclick="navigateTo('project_home.html')">Home</li>
+            <li onclick="navigateTo('project_convert.html')">Convert</li>
+            <li onclick="navigateTo('https://www.google.com')">About</li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="main-content">
+            <form onsubmit="convert(); return false;">
+                <label for="fromCurrency">From Currency: </label>
+                <select id="fromCurrency" name="fromCurrency"></select>
+                <br>
+                <label for="toCurrency">To Currency: </label>
+                <select id="toCurrency" name="toCurrency"></select>
+                <br>
+                <label for="numberToConvert">Number to Convert: </label>
+                <input type="number" step="0.01" name="numberToConvert" id="numberToConvert" required>
+                <br>
+                <input type="submit" value="Convert">
+                <div id="result"></div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function navigateTo(page) {
+            console.log('Navigating to page:', page);
+            window.location.href = page;
+        }
+    </script>
+</body>
+
+</html>
