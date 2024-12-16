@@ -55,16 +55,13 @@ GET /${API_URL}
 fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${baseCurrency}/${desiredCurrency}/${userAmount}`)
 ```
 
-#### IPQualityScore API
-1. Conversion Page (/public/conversion.js)
-* Uses GET to fetch the list of country names as well as their codes to later be translated to currency codes.
-```javascript
-GET /${API_URL}
-fetch(`https://www.ipqualityscore.com/api/json/country/list`)
-```
-
 #### Supabase
 1. Conversion Page (/public/conversion.js)
+* Uses GET to fetch the 'countries' table with the list of country names as well as their codes to later be translated to currency codes.
+```javascript
+GET /countries
+fetch(`${host}/countries`)
+```
 * Uses POST to update the 'past_conversions' table with conversions made by the user to be stored and later retrieved.
 ```javascript
 POST /past_conversions

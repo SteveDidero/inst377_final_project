@@ -96,21 +96,6 @@ async function countryOptions() {
       });
   }
 
-/*function countryOptions() {
-    fetch(`https://www.ipqualityscore.com/api/json/country/list`)
-    .then((res) => res.json())
-        .then(data => {
-            Object.entries(data.countries).forEach(([code, item]) => {
-                const currencyId = item;
-                const option = document.createElement("option");
-                const select = document.getElementById("country-select");
-                option.innerHTML = currencyId;
-                option.value = code;
-                select.appendChild(option);
-            })
-        })
-}*/
-
 function getUserExchange(event) {
     event.preventDefault();
     baseCurrency = document.getElementById("base-currency").value;
