@@ -48,36 +48,59 @@ npm start
 
 ### API Information
 #### ExchangeRate-API
-1. Conversion Page (/public/conversions.js)
-* Uses GET to fetch the list of total currency codes to be displayed dynamically in the select element.
-```javascript
-
-```
+1. Conversion Page (/public/conversion.js)
 * Uses GET to fetch a pair conversion for two different currencies, returning the final amount as well as the conversion rate.
 ```javascript
+fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${baseCurrency}/${desiredCurrency}/${userAmount}`)
 ```
 
 #### IPQualityScore API
-1. Conversion Page (/public/conversions.js)
+1. Conversion Page (/public/conversion.js)
 * Uses GET to fetch the list of country names as well as their codes to later be translated to currency codes.
 ```javascript
+fetch(`https://www.ipqualityscore.com/api/json/country/list`)
 ```
 
 #### Supabase
-1. Conversion Page (/public/conversions.js)
+1. Conversion Page (/public/conversion.js)
 * Uses POST to update the 'past_conversions' table with conversions made by the user to be stored and later retrieved.
 ```javascript
+await fetch(`${host}/past_conversions`, {
+    method: 'POST',
+    body: JSON.stringify({
+      user_username: sessionStorage.getItem('user'),
+      start_currency: baseCurrency,
+      end_currency: desiredCurrency,
+      start_amount: userAmount,
+      end_amount: convertedAmount,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
 ```
 * Uses GET to fetch the 'past_conversions' table to retrieve the conversion history made by the user.
 ```javascript
+fetch(`${host}/past_conversions`)
 ```
 
 2. Login Page (/public/login.js)
 * Uses POST to update the 'credentials' table with a newly created account by the user.
 ```javascript
+await fetch(`${host}/credentials`, {
+      method: 'POST',
+      body: JSON.stringify({
+        user_username: username,
+        user_password: password,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
 ```
 * Uses GET to fetch the 'credentials' table to retrieve the list of usernames and passwords to authenticate the user.
 ```javascript
+fetch(`${host}/credentials`)
 ```
 
 ### Future Development

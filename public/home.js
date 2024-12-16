@@ -1,6 +1,6 @@
 function greeting() {
     if (sessionStorage.getItem("loggedIn") == 'true') {
-        document.getElementById("welcome").innerHTML = `Welcome, ${sessionStorage.getItem('user')}!`
+        document.getElementById("welcome").innerHTML = `Welcome, to Exchango, ${sessionStorage.getItem('user')}!`
     }
 }
 
