@@ -51,6 +51,7 @@ npm start
 1. Conversion Page (/public/conversion.js)
 * Uses GET to fetch a pair conversion for two different currencies, returning the final amount as well as the conversion rate.
 ```javascript
+GET /${API_URL}
 fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${baseCurrency}/${desiredCurrency}/${userAmount}`)
 ```
 
@@ -58,6 +59,7 @@ fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${baseCurrency}/${desi
 1. Conversion Page (/public/conversion.js)
 * Uses GET to fetch the list of country names as well as their codes to later be translated to currency codes.
 ```javascript
+GET /${API_URL}
 fetch(`https://www.ipqualityscore.com/api/json/country/list`)
 ```
 
@@ -65,6 +67,7 @@ fetch(`https://www.ipqualityscore.com/api/json/country/list`)
 1. Conversion Page (/public/conversion.js)
 * Uses POST to update the 'past_conversions' table with conversions made by the user to be stored and later retrieved.
 ```javascript
+POST /past_conversions
 await fetch(`${host}/past_conversions`, {
     method: 'POST',
     body: JSON.stringify({
@@ -81,12 +84,14 @@ await fetch(`${host}/past_conversions`, {
 ```
 * Uses GET to fetch the 'past_conversions' table to retrieve the conversion history made by the user.
 ```javascript
+GET /past_conversions
 fetch(`${host}/past_conversions`)
 ```
 
 2. Login Page (/public/login.js)
 * Uses POST to update the 'credentials' table with a newly created account by the user.
 ```javascript
+POST /credentials
 await fetch(`${host}/credentials`, {
       method: 'POST',
       body: JSON.stringify({
@@ -100,8 +105,9 @@ await fetch(`${host}/credentials`, {
 ```
 * Uses GET to fetch the 'credentials' table to retrieve the list of usernames and passwords to authenticate the user.
 ```javascript
+GET /credentials
 fetch(`${host}/credentials`)
 ```
 
 ### Future Development
-* To improve the user experience, we want to implement a feature that will display the best times to go on vacation based on historical data of currency conversion rates for the desired country.
+* To improve the user experience, we want to implement a feature that will display the best times to go on vacation based on historical data of currency conversion rates for the desired country. This could be implemented using 'Historical Data' endpoints from the ExchangeRate-API, and use a JavaScript library like Chart.js to visualize the trends to show the yearly peaks of a certain currency's conversion rate.
