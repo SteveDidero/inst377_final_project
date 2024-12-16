@@ -119,11 +119,6 @@ async function loadSite() {
     countryOptions();
     console.log(sessionStorage.getItem('user'));
     console.log(sessionStorage.getItem('loggedIn'));
-    if (sessionStorage.getItem("loggedIn") == 'true') {
-        document.getElementById("user-greeting").innerHTML = `Welcome, ${sessionStorage.getItem('user')}`
-    } else {
-        document.getElementById("user-greeting").innerHTML = `You are currently not logged in. Any conversions made will not save.`
-    }
 }
 
 window.onload = loadSite;
