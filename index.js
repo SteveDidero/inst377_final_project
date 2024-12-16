@@ -15,6 +15,20 @@ app.get('/', (req, res) => {
     res.sendFile('public/home.html', { root: __dirname });
   });
   
+app.get('/countries', async (req, res) => {
+    console.log('Attempting to get all rows.');
+
+    const { data, error } = await supabase.from('countries').select();
+
+    if (error) {
+        console.log('Error:', error);
+        res.send(error);
+    } else {
+        console.log('Successfully Retrieved Data');
+        res.send(data);
+    }
+});
+
 app.get('/past_conversions', async (req, res) => {
     console.log('Attempting to get all rows.');
 

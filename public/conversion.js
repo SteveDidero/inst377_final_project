@@ -80,7 +80,23 @@ async function loadEntries() {
   }
 }
 
-function countryOptions() {
+async function countryOptions() {
+    await fetch(`${host}/countries`)
+      .then((res) => res.json())
+      .then((resJson) => {
+        console.log(resJson);
+        resJson.forEach((entry) => {
+          const currencyId = entry.country;
+          const option = document.createElement("option");
+          const select = document.getElementById("country-select");
+          option.innerHTML = currencyId;
+          option.value = entry.code;
+          select.appendChild(option);
+        });
+      });
+  }
+
+/*function countryOptions() {
     fetch(`https://www.ipqualityscore.com/api/json/country/list`)
     .then((res) => res.json())
         .then(data => {
@@ -93,7 +109,7 @@ function countryOptions() {
                 select.appendChild(option);
             })
         })
-}
+}*/
 
 function getUserExchange(event) {
     event.preventDefault();
