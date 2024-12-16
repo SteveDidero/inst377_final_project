@@ -1,9 +1,10 @@
 # INST377 Group Project: Currency Conversion Website
 * Group Members: Steve Tanekeu, Valerie Mendoza, Roman Lakner, Grace Yang
 * Project Title: Exchango!
-* Project Description:
+* Project Description: Exchango! is an application that makes currency conversion simple. We utilize the ExchangeRate-API to convert 161 different currencies used around the world to help make the process of preparing for international vacation easier. So often, the general public or even tourists make wrong calculations about their spending when traveling to a new location only to find out later that they can’t participate in some of the activities that they planned or do some things that require money because they didn’t know how much to bring. To combat this, we used the API to create a user-friendly website that assists in currency conversion.
 * Target Browsers Descrption: Our website pages are best designed for desktop Google Chrome users. The application will still be functional on other browsers such as Microsoft Edge or Mozilla Firefox, however mobile users may not see the screen as intended.
 * Vercel Link: https://inst377-final-project.vercel.app/
+    * For the Vercel link, please enable CORS and disable any ad-blocker.
 
 ---
 

@@ -76,7 +76,7 @@ async function loadEntries() {
         document.body.appendChild(table);
       });
   } else {
-    alert("You must create and account or login to view conversion history.")
+    alert("You must create an account or login to view conversion history.")
   }
 }
 
