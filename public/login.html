@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Login</title>
+        <script type='text/javascript' src="login.js" defer></script>
+        <link rel="stylesheet" href="login.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="conversion.html">Convert</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div id="right">
+                    <ul>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div id="disclaimer">
+            <p>Create an account or login here. In order to save past conversions you must have an account.</p>
+        </div>
+        <div id="main-content">
+            <div id="create-account">
+                <h1>Create Account</h1>
+                <form onsubmit="createAccount(event); return false;">
+                    <label>Username: </label>
+                    <input type="text" id="c-username">
+                    <br>
+                    <label>Password: </label>
+                    <input type="text" id="c-password">
+                    <br>
+                    <input type="submit" value="Create">
+                </form> 
+            </div>     
+            <div id="login-account">
+                <h1>Login</h1>
+                <form onsubmit="login(event); return false;">
+                    <label>Username: </label>
+                    <input type="text" id="l-username">
+                    <br>
+                    <label>Password: </label>
+                    <input type="text" id="l-password">
+                    <br>
+                    <input type="submit" value="Login">
+                </form>
+            </div>   
+        </div>
+        <div id="button-div">
+            <button onclick="logOut(event); return false;" class="button-31">Log Out</button>
+        </div>
+    </body>
+</html>

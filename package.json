@@ -20,6 +20,7 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.47.6",
     "body-parser": "^1.20.3",
+    "country-to-currency": "^2.0.2",
     "express": "^4.21.2",
     "nodemon": "^3.1.7"
   }

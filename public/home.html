@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Home</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="home.css">
+    <script type='text/javascript' src="home.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="conversion.html">Convert</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div id="right">
+                <ul>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="flag-container">
+        <h1 id="welcome">Welcome!</h1>
+        <h3>If your next trip is right about the corner, then you're in luck. We have a great
+            tool to help you plan your finance while your there. Get started below! 
+        </h3>
+        <br>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        <div class="country-name-box" id="countryNameBox"></div>
+
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    </div>
+    <div class="button-container">
+        <div class="short">
+            <h2>Convert Currencies</h2>
+            <br>
+            <p>Easily make conversions for over 150 currencies used world.</p>
+            <br>
+            <button class="button-28" role="button" onclick="location.href='conversion.html'">Get Started</button>
+        </div>
+        <div class="short">
+            <h2>About Us</h2>
+            <br>
+            <p>Learn about our mission to help travelers avoid costly mistakes!</p>
+            <br>
+            <button class="button-28" role="button" onclick="location.href='about.html'">About Us</button>
+        </div>
+    </div>
+    <footer>
+    </footer>
+</body>
+
+</html>

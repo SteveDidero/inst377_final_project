@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <title>Exchango!</title>
+    <script crossorigin src="https://unpkg.com/country-to-currency" ></script>
+    <script type='text/javascript' src="conversion.js" defer></script>
+    <link  rel="stylesheet" href="conversion.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="conversion.html">Convert</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div id="right">
+                <ul>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div id="formCenter">
+        <form onsubmit="getUserExchange(event); return false;">
+            <label for="country">Enter Country:</label>
+            <select id="country-select">
+            </select>
+            <br>
+            <label for="currency">Enter Domestic Currency:</label>
+            <input type="text" id="base-currency" required maxlength="3">
+            <br>
+            <label for="amount">Enter Currency Amount:</label>
+            <input type="text" id="base-amount" required>
+            <br>
+            <input type="submit" value="Convert">
+            <br>
+            <div id="conversion_results"></div>
+        </form>
+    </div>
+    <hr>
+    <div id="records">
+        <button class="button-31" onclick="loadEntries()">Show Past Conversions</button>
+    </div>
+
+    <footer>
+    </footer>
+</body>
+
+</html>
